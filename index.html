@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Turbo Descriptions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logoRing" aria-hidden="true">
+          <img src="crest.png" alt="" />
+        </div>
+        <div class="brandText">
+          <h1 id="title">Turbo Descriptions</h1>
+          <p class="sub" id="subtitle">Junior Cycle Spanish — describe people, places & routines</p>
+        </div>
+      </div>
+
+      <div class="pillRow" aria-label="Round settings">
+        <span class="pill" id="pillLevel">Level: 1</span>
+        <span class="pill" id="pillMode">Mode: Classic</span>
+        <span class="pill" id="pillLang">Language: Spanish</span>
+        <span class="pill" id="pillPenalty">Penalty: +30s</span>
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <section class="card" id="screenHome">
+      <div class="cardHead">
+        <h2>Choose your round</h2>
+        <p class="muted">
+          Answer 10 prompts in the selected language. Then mark wrong answers at insane speed.
+          Solo play — pick options below and start.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label for="levelSelect">Level (1 easy → 10 tough)</label>
+          <select id="levelSelect"></select>
+          <p class="hint" id="levelHint">—</p>
+        </div>
+
+        <div class="field">
+          <label for="modeSelect">Mode</label>
+          <select id="modeSelect">
+            <option value="classic">Classic</option>
+            <option value="sprint">Sprint (time cap)</option>
+            <option value="survival">Survival (0 wrong)</option>
+            <option value="relay">Relay (A then B)</option>
+          </select>
+          <p class="hint" id="modeHintHome">—</p>
+        </div>
+
+        <div class="field">
+          <label for="langSelect">Answer language</label>
+          <select id="langSelect">
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+          </select>
+          <p class="hint" id="langHint">—</p>
+        </div>
+
+        <div class="field span2">
+          <label>Ready?</label>
+          <div class="btnRow">
+            <button class="btn primary" id="soloBtn" type="button">Start</button>
+          </div>
+        </div>
+
+        <div class="field span2">
+          <label>Motivation</label>
+          <div class="motivation">
+            <div class="motBox">
+              <div class="motK">Personal best (this setup)</div>
+              <div class="motV" id="pbOut">—</div>
+            </div>
+            <div class="motBox">
+              <div class="motK">Rounds played</div>
+              <div class="motV" id="roundsOut">0</div>
+            </div>
+          </div>
+          <p class="hint">
+            Each wrong or blank answer adds a time penalty (shown above).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section class="card hidden" id="screenGame">
+      <div class="gameHead">
+        <div>
+          <h2 id="gameTitle">Round</h2>
+          <div class="meta">
+            <span class="tag" id="tagCap">Sprint cap: —</span>
+            <span class="tag" id="tagTips">Tips: —</span>
+          </div>
+        </div>
+
+        <div class="rightControls">
+          <button class="btn ghost tiny" id="quitBtn" type="button">Quit</button>
+        </div>
+      </div>
+
+      <div class="promptArea" id="promptArea">
+        <!-- injected -->
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="prevBtn" type="button">Back</button>
+        <button class="btn primary" id="nextBtn" type="button">Next</button>
+      </div>
+
+      <div class="modeHint" id="modeHint">—</div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="card hidden" id="screenResults">
+      <div class="cardHead">
+        <h2>Results</h2>
+        <p class="muted">
+          Mark wrong answers fast. Click a box to toggle wrong/correct. Blanks count wrong.
+        </p>
+      </div>
+
+      <div class="statsRow">
+        <div class="stat">
+          <div class="k">Time</div>
+          <div class="v" id="timeOut">0:00</div>
+        </div>
+        <div class="stat">
+          <div class="k">Wrong</div>
+          <div class="v" id="wrongOut">0</div>
+        </div>
+        <div class="stat">
+          <div class="k">Score</div>
+          <div class="v" id="scoreOut">0.0s</div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="speedMark">
+        <div class="speedTop">
+          <div class="speedTitle">Speed marking</div>
+          <div class="speedBtns">
+            <button class="btn tiny" id="allCorrectBtn" type="button">All correct</button>
+            <button class="btn tiny" id="blanksWrongBtn" type="button">Blanks wrong</button>
+            <button class="btn ghost tiny" id="expandBtn" type="button">Expand answers</button>
+            <button class="btn ghost tiny" id="copyBtn" type="button">Copy results</button>
+          </div>
+        </div>
+
+        <div class="markGrid" id="markGrid" aria-label="Mark wrong answers">
+          <!-- injected -->
+        </div>
+
+        <div class="answersWrap hidden" id="answersWrap">
+          <!-- injected -->
+        </div>
+      </div>
+
+      <div class="ctaRow">
+        <button class="btn primary" id="playAgainBtn" type="button">Play again</button>
+        <button class="btn ghost" id="homeBtn" type="button">Back to menu</button>
+      </div>
+
+      <div class="pbBanner hidden" id="pbBanner" role="status" aria-live="polite">
+        New personal best!
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
