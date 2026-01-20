@@ -16,12 +16,12 @@
         </div>
         <div class="brandText">
           <h1 id="title">Turbo Descriptions</h1>
-          <p class="sub" id="subtitle">Junior Cycle Spanish — describe people, places & routines</p>
+          <p class="sub" id="subtitle">Junior Cycle — describe people, places & routines</p>
         </div>
       </div>
 
       <div class="pillRow" aria-label="Round settings">
-        <span class="pill" id="pillLevel">Level: 1</span>
+        <span class="pill" id="pillLevel">Level: Basics</span>
         <span class="pill" id="pillMode">Mode: Classic</span>
         <span class="pill" id="pillLang">Language: Spanish</span>
         <span class="pill" id="pillPenalty">Penalty: +30s</span>
@@ -40,7 +40,7 @@
 
       <div class="grid">
         <div class="field">
-          <label for="levelSelect">Level (1 easy → 10 tough)</label>
+          <label for="levelSelect">Level (by topic)</label>
           <select id="levelSelect"></select>
           <p class="hint" id="levelHint">—</p>
         </div>
@@ -85,8 +85,17 @@
               <div class="motV" id="roundsOut">0</div>
             </div>
           </div>
+
+          <div class="globalProg" aria-label="Global progress">
+            <div class="globalTop">
+              <div class="globalK">Global progress (all levels/modes/languages)</div>
+              <div class="globalV" id="globalText">0 / 120</div>
+            </div>
+            <div class="globalBar"><div class="globalFill" id="globalFill"></div></div>
+          </div>
+
           <p class="hint">
-            Each wrong or blank answer adds a time penalty (shown above).
+            Each wrong or blank answer adds a time penalty (shown above). Global progress counts unique setups you’ve completed.
           </p>
         </div>
       </div>
@@ -106,6 +115,12 @@
         <div class="rightControls">
           <button class="btn ghost tiny" id="quitBtn" type="button">Quit</button>
         </div>
+      </div>
+
+      <!-- Per-round progress -->
+      <div class="progressWrap" aria-label="Progress">
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="progressText" id="progressText">1 / 10</div>
       </div>
 
       <div class="promptArea" id="promptArea">
@@ -142,6 +157,15 @@
           <div class="k">Score</div>
           <div class="v" id="scoreOut">0.0s</div>
         </div>
+      </div>
+
+      <!-- Marking progress -->
+      <div class="markProg" aria-label="Marking progress">
+        <div class="markTop">
+          <div class="markK">Marking progress</div>
+          <div class="markV" id="markText">0 / 10</div>
+        </div>
+        <div class="markBar"><div class="markFill" id="markFill"></div></div>
       </div>
 
       <div class="hr"></div>
